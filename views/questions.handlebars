@@ -1,0 +1,30 @@
+<div class="container w-50">
+    <div class="jumbotron bg-white text-center border">
+        <h1 class="display-4 mb-4">What is My Life?!</h1>
+        <div class="lead pt-4">
+            <form id="survey-form">
+                <div class="rowTab">
+                    <div class="labels">
+                        <label>Question</label>
+                        {{#each values}}
+                        <p>{{question}}</p>
+                        <form class="rightTab">
+                            <ul id="{{id}}">
+                                <li class="radio"><label>True<input type="radio" name="{{id}}"
+                                            value="1" class="submit"></label></li>
+                                <li class="radio"><label>False<input type="radio" name="{{id}}"
+                                            value="2" class="submit"></label></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+                {{else}}
+                <p>No questions available</p>
+                {{/each}}
+                <hr class="my-4">
+                <p class="lead">Find who you are!</p>
+                <a class="btn btn-warning btn-lg btn-block mt-4" href="#" id="submitFinal" type="button">Submit</a>
+            </form>
+        </div>
+    </div>
+</div>
