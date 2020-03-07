@@ -1,10 +1,13 @@
-<<<<<<< HEAD
-/* *********Personality HTML******* */
+body {
+  background-image: url("img/background.png");
+}
 
 /* Container margin  */
 .container {
-    margin-top: 2rem!important;
+  margin-top: 2rem!important;
 }
+
+/* *********Personality HTML******* */
 
 /* Row margin to match container */
 .row1 {
@@ -27,49 +30,48 @@
 }
 
 /* ******* End of Personality HTML ******* */
-=======
+
 /* questions */
-html, body {
-    background-color: white;
-    min-width: 320px;
-  }
-    h1 {
-    text-align: center;
-  }
+body {
+  min-width: 320px;
+}
  
-  .labels {
-    display: inline-block;
-    text-align: right;
-    width: 40%;
-    padding: 5px;
-    vertical-align: top;
-    margin-top: 10px;
-  }
-  .rightTab {
-    display: inline-block;
-    text-align: left;
-    width: 48%;
-    vertical-align: middle;
-  }
+.labels {
+  display: inline-block;
+  text-align: right;
+  width: 40%;
+  padding: 5px;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.rightTab {
+  display: inline-block;
+  text-align: left;
+  width: 48%;
+  vertical-align: middle;
+}
   
-  .radio, .checkbox {
-    position: relative;
-    display: block;
-    padding-bottom: 10px;
-    left: -43px;
-    margin-left: 10px;
-    
-  }
-  .button-submit {
-    margin-top: 1em;
-    padding: .5em;
-  }
+.radio, .checkbox {
+  position: relative;
+  display: block;
+  padding-bottom: 10px;
+  left: -43px;
+  margin-left: 10px;
+}
   
-  .submit,
-  input[type="checkbox"] {
-    float: left;
-    margin-right: 5px;
-  }
+.button-submit {
+  margin-top: 1em;
+  padding: .5em;
+}
   
+.submit,
+input[type="checkbox"] {
+  float: left;
+  margin-right: 5px;
+}
   
->>>>>>> c34c5f04094bcf2c0dcd4d920eb381d4e47244e6
+ul {
+  list-style-type: none;
+}
+  
