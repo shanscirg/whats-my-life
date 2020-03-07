@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +16,8 @@ const exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // Require models
 const db = require("./models");

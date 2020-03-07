@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+/* *********Personality HTML******* */
+
+/* Container margin  */
+.container {
+    margin-top: 2rem!important;
+}
+
+/* Row margin to match container */
+.row1 {
+    margin: auto;
+}
+
+/* Remove border on card of strength and weakness*/
+.card1 {
+    border: none;
+}
+
+/* Place strengths and weaknesses on multiple lines  */
+.multiline {
+    white-space: pre-wrap;
+}
+
+/* Section 3 card margin-bottom  */
+.card2 {
+    margin-bottom: 2rem!important;
+}
+
+/* ******* End of Personality HTML ******* */
+=======
 /* questions */
 html, body {
     background-color: white;
@@ -42,3 +72,4 @@ html, body {
   }
   
   
+>>>>>>> c34c5f04094bcf2c0dcd4d920eb381d4e47244e6
