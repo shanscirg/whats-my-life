@@ -1,1 +1,44 @@
-
+/* questions */
+html, body {
+    background-color: white;
+    min-width: 320px;
+  }
+    h1 {
+    text-align: center;
+  }
+ 
+  .labels {
+    display: inline-block;
+    text-align: right;
+    width: 40%;
+    padding: 5px;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+  .rightTab {
+    display: inline-block;
+    text-align: left;
+    width: 48%;
+    vertical-align: middle;
+  }
+  
+  .radio, .checkbox {
+    position: relative;
+    display: block;
+    padding-bottom: 10px;
+    left: -43px;
+    margin-left: 10px;
+    
+  }
+  .button-submit {
+    margin-top: 1em;
+    padding: .5em;
+  }
+  
+  .submit,
+  input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+  }
+  
+  
