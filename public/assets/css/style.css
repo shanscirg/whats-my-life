@@ -1,19 +1,28 @@
-/* li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+/* *********Personality HTML******* */
+
+/* Container margin  */
+.container {
+    margin-top: 2rem!important;
 }
 
-.label {
-  font-weight: bold;
+/* Row margin to match container */
+.row1 {
+    margin: auto;
 }
 
-.create-update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+/* Remove border on card of strength and weakness*/
+.card1 {
+    border: none;
 }
 
-.form-group {
-  margin-bottom: 5px;
-} */
+/* Place strengths and weaknesses on multiple lines  */
+.multiline {
+    white-space: pre-wrap;
+}
+
+/* Section 3 card margin-bottom  */
+.card2 {
+    margin-bottom: 2rem!important;
+}
+
+/* ******* End of Personality HTML ******* */
