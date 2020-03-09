@@ -1,13 +1,11 @@
 body {
-  background-image: url("img/background.png");
+  background-image: url('../img/background.png');
 }
 
 /* Container margin  */
 .container {
-  margin-top: 2rem!important;
+  margin-top: 4rem!important;
 }
-
-/* *********Personality HTML******* */
 
 /* Row margin to match container */
 .row1 {
@@ -29,13 +27,14 @@ body {
     margin-bottom: 2rem!important;
 }
 
-/* ******* End of Personality HTML ******* */
-/* questions */
-body {
-  min-width: 320px;
+/* Change button width  */
+.btn-width {
+  width: 50%;
 }
  
-.labels {
+
+
+/* .labels {
   display: inline-block;
   text-align: right;
   width: 40%;
@@ -68,9 +67,11 @@ body {
 input[type="checkbox"] {
   float: left;
   margin-right: 5px;
-}
+} 
   
 ul {
   list-style-type: none;
-}
+} */
+
+
   
