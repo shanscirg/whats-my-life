@@ -3,7 +3,7 @@ const router = express.Router();
 const results = require("../personalities/personality");
 const db = require("../models");
 
-router.get("/", (req, res) => res.send("TESTING"));
+router.get("/", (req, res) => res.send("LANDING PAGE?"));
 
 router.get("/test", function (req, res) {
     db.Question.findAll({})
@@ -22,7 +22,7 @@ router.get("/test", function (req, res) {
 router.get("/results/:result", (req, res) => {
     const personality = results.filter(item => item.type === req.params.result.toUpperCase())
     console.log(personality);
-    res.render("personality", personality[0])
+    res.render("personality", personality[0]);
 });
 
 module.exports = router;
