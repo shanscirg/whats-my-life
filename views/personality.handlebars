@@ -3,11 +3,11 @@
     <!-- Secion 1 -->
     <div class="jumbotron p-4 bg-white border">
       <!-- Personality Type -->
-      <h1 class="display-4">{{ personTitle }}</h1>
-      <p class="lead">{{ personWords }}</p>
+      <h1 class="display-4">{{ title }}</h1>
+      <p class="lead">{{ subTitle }}</p>
       <hr class="my-2">
       <!-- Description -->
-      <p>{{ personDescription }}</p>
+      <p>{{ description }}</p>
     </div>
 
     <!-- Section 2 -->
@@ -16,7 +16,7 @@
       <!-- Column 1 -->
       <div class="col-lg-6">
         <!-- Image -->
-        <img src="{{ personImageURL }}" class="card-img-top pr-4" alt="">
+        <img src="{{ image }}" class="card-img-top pr-4" alt="">
       </div>
       <!-- Column 2 -->
       <!-- Card -->
@@ -24,7 +24,7 @@
         <!-- Overview -->
         <h5 class="card-header">Overview</h5>
         <div class="card-body">
-          <p class="card-text">{{ personOverview }}</p>
+          <p class="card-text">{{ overview }}</p>
           <!-- Nested Row  -->
           <div class="row">
             <!-- Column 1 -->
@@ -33,7 +33,7 @@
               <div class="card">
                 <div class="card-body p-0">
                   <h5 class="card-title pb-0">Strengths</h5>
-                  <p class="card-text multiline">{{ personStrengths }}</p>
+                  <p class="card-text multiline">{{ strengths }}</p>
                 </div>
               </div>
             </div>
@@ -43,7 +43,7 @@
               <div class="card">
                 <div class="card-body p-0">
                   <h5 class="card-title pb-0">Weaknesses</h5>
-                  <p class="card-text multiline">{{ personWeaknesses}}</p>
+                  <p class="card-text multiline">{{ weaknesses}}</p>
                 </div>
               </div>
             </div>
