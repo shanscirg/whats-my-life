@@ -7,10 +7,10 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       },
     }
-    }, 
+  }, 
     { timestamps: false});
     return Question;
-  };
+};
 
 
   

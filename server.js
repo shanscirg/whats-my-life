@@ -30,7 +30,7 @@ const db = require("./models");
 
 // Routes
 // =============================================================
-app.use("/lads", require("./routes/api-routes.js"));
+app.use("/", require("./routes/api-routes.js"));
 // require("./routes/html-routes.js")(app);
 // require("./routes/author-api-routes.js")(app);
 

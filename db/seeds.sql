@@ -1,3 +1,4 @@
+-- Part A (E/I)
 INSERT INTO Questions (question) VALUES ("I like being around people");
 INSERT INTO Questions (question) VALUES ("I am more interested in people than in their ideas");
 INSERT INTO Questions (question) VALUES ("I have many friends");
