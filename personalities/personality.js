@@ -48,7 +48,7 @@ module.exports = [
   {
     "id": 3,
     "type": "ENFJ",
-    "title": "ENFJ:The Teacher",
+    "title": "ENFJ: The Teacher",
     "subTitle": "(Extroverted, Intuitive, Feeling, Judging)",
     "description": "ENFJ is an acronym used to describe one of the sixteen personality types created by Katharine Briggs and Isabel Myers. It stands for Extraverted, iNtuitive, Feeling, Judging. ENFJ indicates a person who is energized by time spent with others (Extraverted), who focuses on ideas and concepts rather than facts and details (iNtuitive), who makes decisions based on feelings and values (Feeling) and who prefers to be planned and organized rather than spontaneous and flexible (Judging). ENFJs are sometimes referred to as Teacher personalities because of their interest in helping others develop and grow.",
     "image": "ENFJ.png",
