@@ -23,9 +23,9 @@ function setToZero() {
 
 $(document).ready(function () {
     console.log("");
-    // $("#signIn").click(function () {
-
-    // })
+    $("#signIn").click(function () {
+        window.location.pathname = `/results`;
+    })
     $("#beginButton").click(function () {
         window.location.pathname = `/questions`;
     });
