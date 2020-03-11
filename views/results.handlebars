@@ -1,68 +1,77 @@
-<!-- Container  -->
-  <div class="container">
-    <!-- Secion 1 -->
-    <div class="jumbotron p-4 bg-white border">
-      <!-- Personality Type -->
-      <h1 class="display-4">{{ title }}</h1>
-      <p class="lead">{{ subTitle }}</p>
-      <hr class="my-2">
-      <!-- Description -->
-      <p>{{ description }}</p>
+<nav class="navbar navbar-expand bg-transparent navbar-light sticky-top">
+  <div class="nav navbar-nav ml-auto">
+    <div class="nav-item dropdown btn btn-warning px-2 py-0">
+      <a class="nav-link text-body" id="signOut">Sign Out</a>
     </div>
+  </div>
+</nav>
 
-    <!-- Section 2 -->
-    <!-- Row 1 -->
-    <div class="row">
-      <!-- Column 1 -->
-      <div class="col-lg-6">
-        <!-- Image -->
-        <img src="/assets/img/{{ image }}" class="card-img-top pr-4" alt="">
-      </div>
-      <!-- Column 2 -->
-      <!-- Card -->
-      <div class=" col-lg-6 card px-0">
-        <!-- Overview -->
-        <h5 class="card-header">Overview</h5>
-        <div class="card-body">
-          <p class="card-text">{{ overview }}</p>
-          <!-- Nested Row  -->
-          <div class="row">
-            <!-- Column 1 -->
-            <div class="col-sm-6">
-              <!-- Nested Card 1 -->
-              <div class="card">
-                <div class="card-body p-0">
-                  <h5 class="card-title pb-0">Strengths</h5>
-                  <p class="card-text multiline">{{ strengths }}</p>
-                </div>
-              </div>
-            </div>
-            <!-- Column 2 -->
-            <div class="col-sm-6">
-              <!-- Nested Card 2 -->
-              <div class="card">
-                <div class="card-body p-0">
-                  <h5 class="card-title pb-0">Weaknesses</h5>
-                  <p class="card-text multiline">{{ weaknesses}}</p>
-                </div>
+<!-- Container  -->
+<div class="container">
+  <!-- Secion 1 -->
+  <div class="jumbotron p-4 bg-white border">
+    <!-- Personality Type -->
+    <h1 class="display-4">{{ title }}</h1>
+    <p class="lead">{{ subTitle }}</p>
+    <hr class="my-2">
+    <!-- Description -->
+    <p>{{ description }}</p>
+  </div>
+
+  <!-- Section 2 -->
+  <!-- Row 1 -->
+  <div class="row row1">
+    <!-- Column 1 -->
+    <div class="col-lg-6">
+      <!-- Image -->
+      <img src="/assets/img/{{ image }}" class="card-img-top pr-4" alt="">
+    </div>
+    <!-- Column 2 -->
+    <!-- Card -->
+    <div class="col-lg-6 card px-0">
+      <!-- Overview -->
+      <h5 class="card-header">{{ firstName }}'s Overview</h5>
+      <div class="card-body">
+        <p class="card-text">{{ overview }}</p>
+        <!-- Nested Row  -->
+        <div class="row text-center">
+          <!-- Column 1 -->
+          <div class="col-sm-6">
+            <!-- Nested Card 1 -->
+            <div class="card card1">
+              <div class="card-body p-1">
+                <h5 class="card-title pb-0">Strengths</h5>
+                <p class="card-text multiline">{{ strengths }}</p>
               </div>
             </div>
           </div>
-          <!-- End of Nested Row  -->
+          <!-- Column 2 -->
+          <div class="col-sm-6">
+            <!-- Nested Card 2 -->
+            <div class="card card1">
+              <div class="card-body p-1">
+                <h5 class="card-title pb-0">Weaknesses</h5>
+                <p class="card-text multiline">{{ weaknesses }}</p>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- End of Nested Row  -->
       </div>
-      <!-- End of card -->
     </div>
-    <!-- End of Section 2 -->
+    <!-- End of card -->
+  </div>
+  <!-- End of Section 2 -->
 
 
-    <!-- Section 3 -->
-    <div class="card mt-4">
-      <h5 class="card-header">Fun Facts! </h5>
-      <div class="card-body">
-        <h5 class="card-title">See How You Match Up According to Your Personality Type!</h5>
-        <!-- Collapse  -->
-        <!-- Mental Age  -->
+  <!-- Section 3 -->
+  <div class="card my-4">
+    <h5 class="card-header">Fun Facts about {{ firstName }}!</h5>
+    <div class="card-body">
+      <h5 class="card-title">See How You Match Up According to Your Personality Type!</h5>
+      <!-- Collapse  -->
+      <!-- Mental Age  -->
+      <div class="accordion" id="accordionExample">
         <div class="card">
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
@@ -114,60 +123,59 @@
           </div>
         </div>
         <!-- Pizza  -->
-        <div class="accordion" id="accordionExample">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
-                  data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  What Kind of Pizza Would You Be?
-                </button>
-              </h2>
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                <h5 class="card-title">{{ pizzaTitle }}</h5>
-                <p class="card-text">{{ pizzaDescription }}</p>
-              </div>
-            </div>
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                What Kind of Pizza Would You Be?
+              </button>
+            </h2>
           </div>
-          <!-- Coffee  -->
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
-                  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  What Kind of Coffee Are You?
-                </button>
-              </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
-                <h5 class="card-title">{{ coffeeTitle }}</h5>
-                <p class="card-text">{{ coffeeDescription }}</p>
-              </div>
-            </div>
-          </div>
-          <!-- Travel  -->
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
-                  data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Which Travel Destination Suits You?
-                </button>
-              </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                <h5 class="card-title">{{ travelTitle }}</h5>
-                <p class="card-text">{{ travelDescription }}</p>
-              </div>
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <h5 class="card-title">{{ pizzaTitle }}</h5>
+              <p class="card-text">{{ pizzaDescription }}</p>
             </div>
           </div>
         </div>
-        <!-- End of Collapse  -->
+        <!-- Coffee  -->
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                What Kind of Coffee Are You?
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              <h5 class="card-title">{{ coffeeTitle }}</h5>
+              <p class="card-text">{{ coffeeDescription }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Travel  -->
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Which Travel Destination Suits You?
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+              <h5 class="card-title">{{ travelTitle }}</h5>
+              <p class="card-text">{{ travelDescription }}</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- End of Collapse  -->
     </div>
   </div>
-  <!-- End of Container  -->
+</div>
+<!-- End of Container  -->
