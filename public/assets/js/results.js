@@ -11,6 +11,9 @@ var result = [];
 
 $(document).ready(function () {
     console.log("")
+    $("#beginButton").click(function () {
+        window.location.pathname = `/questions`;
+    });
     $("#submitFinal").click(function () {
         for (let i = 0; i < 6; i++) {
             var radioValue = $(`input[name='${i}']:checked`).val();
@@ -66,6 +69,8 @@ $(document).ready(function () {
         }
         const joinedResult = result.join("");
         console.log(joinedResult);
-        window.location.pathname = `/lads/results/${joinedResult}`;
+        const types = ["INFP", "INFJ", "ENFJ", "ENFP", "INTJ", "ENTJ", "ENTP", "INTP", "ESFJ", "ESFP", "ISFJ", "ISFP", "ESTJ", "ESTP", "ISTJ", "ISTP"]
+        // if (!types.includes(${joinedResult});
+        window.location.pathname = `/results/${joinedResult}`;
     });
 });
