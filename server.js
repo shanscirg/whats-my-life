@@ -20,21 +20,12 @@ app.set("view engine", "handlebars");
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
 
-
 // Require models
 const db = require("./models");
 
-// Import routes and give the server access to them.
-// const routes = require("./controllers/catsController.js");
-// app.use(routes);
-
 // Routes
 // =============================================================
-app.use("/lads", require("./routes/api-routes.js"));
-// require("./routes/html-routes.js")(app);
-// require("./routes/author-api-routes.js")(app);
-
-app.get("/", (req, res) => res.send("INDEX"));
+app.use("/", require("./routes/api-routes.js"));
 
 db.sequelize.sync({}).then(function () {
     app.listen(PORT, function () {
