@@ -2,11 +2,6 @@ body {
   background-image: url('../img/background.png');
 }
 
-/* Container margin  */
-.container {
-  margin-top: 4rem!important;
-}
-
 /* Row margin to match container */
 .row1 {
     margin: auto;
@@ -32,46 +27,10 @@ body {
   width: 50%;
 }
  
-
-
-/* .labels {
-  display: inline-block;
-  text-align: right;
-  width: 40%;
-  padding: 5px;
-  vertical-align: top;
-  margin-top: 10px;
+/* Login menu size increase  */
+.dropdown-menu {
+  width: 225px;
 }
-
-.rightTab {
-  display: inline-block;
-  text-align: left;
-  width: 48%;
-  vertical-align: middle;
-}
-  
-.radio, .checkbox {
-  position: relative;
-  display: block;
-  padding-bottom: 10px;
-  left: -43px;
-  margin-left: 10px;
-}
-  
-.button-submit {
-  margin-top: 1em;
-  padding: .5em;
-}
-  
-.submit,
-input[type="checkbox"] {
-  float: left;
-  margin-right: 5px;
-} 
-  
-ul {
-  list-style-type: none;
-} */
 
 
   
