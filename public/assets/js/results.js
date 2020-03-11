@@ -22,7 +22,10 @@ function setToZero() {
 }
 
 $(document).ready(function () {
-    console.log("")
+    console.log("");
+    // $("#signIn").click(function () {
+
+    // })
     $("#beginButton").click(function () {
         window.location.pathname = `/questions`;
     });
