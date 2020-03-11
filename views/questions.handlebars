@@ -6,7 +6,7 @@
         <!-- Card holding question  -->
         <div class="card my-1">
             <div class="card-body">
-        {{#each values}}
+                {{#each values}}
                 <!-- Row -->
                 <div class="row row1">
                     <!-- Column 1 for question  -->
@@ -18,16 +18,14 @@
                     <!-- Column 2 for Radio Btn (true) -->
                     <div class="col">
                         <div id="{{id}}" class="form-check">
-                            <input class="form-check-input" type="radio" name="{{id}}" id="true"
-                                value="1">
+                            <input class="form-check-input" type="radio" name="{{id}}" id="true" value="1">
                             <label class="form-check-label" for="exampleRadios1">True</label>
                         </div>
                     </div>
                     <!-- Column 3 for Radio Btn (false) -->
                     <div class="col">
                         <div id="{{id}}" class="form-check">
-                            <input class="form-check-input" type="radio" name="{{id}}" id="false"
-                                value="0">
+                            <input class="form-check-input" type="radio" name="{{id}}" id="false" value="0">
                             <label class="form-check-label" for="exampleRadios2">False</label>
                         </div>
                     </div>
@@ -39,6 +37,23 @@
             </div>
         </div>
         <!-- End of Card -->
+
+        <!-- Email and password  -->
+        <p class="text-center mt-4">Please create a username and password below so your results can be
+            saved and viewed at any time!</p>
+        <form class="form-inline d-flex justify-content-center">
+            <label for="staticEmail">Username:</label>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputEmail2" class="sr-only">Username</label>
+                <input type="email" class="form-control" id="inputEmail2" placeholder="">
+            </div>
+            <label for="staticEmail">Password:</label>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="">
+            </div>
+        </form>
+        <!-- End  -->
 
         <!-- Results Button  -->
         <div class="d-flex justify-content-center">

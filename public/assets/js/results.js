@@ -69,6 +69,8 @@ $(document).ready(function () {
         }
         const joinedResult = result.join("");
         console.log(joinedResult);
+        const types = ["INFP", "INFJ", "ENFJ", "ENFP", "INTJ", "ENTJ", "ENTP", "INTP", "ESFJ", "ESFP", "ISFJ", "ISFP", "ESTJ", "ESTP", "ISTJ", "ISTP"]
+        // if (!types.includes(${joinedResult});
         window.location.pathname = `/results/${joinedResult}`;
     });
 });
