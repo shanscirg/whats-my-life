@@ -34,7 +34,7 @@ app.use("/lads", require("./routes/api-routes.js"));
 // require("./routes/html-routes.js")(app);
 // require("./routes/author-api-routes.js")(app);
 
-app.get("/", (req, res) => res.send("INDEX"));
+app.get("/", (req, res) => res.render("home"));
 
 db.sequelize.sync({}).then(function () {
     app.listen(PORT, function () {
