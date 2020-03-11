@@ -1,5 +1,24 @@
-body {
+/* body {
   background-image: url('../img/lads_webpage.png');
+} */
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: ;
+}
+
+body {
+  /* The image used */
+  background-image: url("../img/lads_webpage_2.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Row margin to match container */
