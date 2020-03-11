@@ -8,6 +8,7 @@ let T = 0;
 let J = 0;
 let P = 0;
 let result = [];
+let joinedResult = "";
 
 function setToZero() {
     E = 0;
@@ -24,8 +25,11 @@ function setToZero() {
 $(document).ready(function () {
     console.log("");
     $("#signIn").click(function () {
-        window.location.pathname = `/results`;
-    })
+        window.location.pathname = `/results/INFP`;
+    });
+    $("#signOut").click(function () {
+        window.location.pathname = `/`;
+    });
     $("#beginButton").click(function () {
         window.location.pathname = `/questions`;
     });
@@ -86,11 +90,31 @@ $(document).ready(function () {
         } else if (P > J && ((J + P) === 5)) {
             result.push("P");
         }
-        const joinedResult = result.join("");
+        joinedResult = result.join("");
         console.log(joinedResult);
         checkIfAllQsAnswered(joinedResult);
     });
+
+    // grab user info from form and save to variables
+    const firstName = $("#inputName2").val();
+    const userName = $("#inputEmail2").val();
+    const password = $("#inputPassword2").val();
+    
+    //ajax post request
+    function postUser(user) {
+        $.ajax({
+            method: "POST",
+            url: `api/users/?firstName=${firstName}&username=${userName}&password=${password}&result=${joinedResult}`, 
+        })
+        .then(function(user){
+            console.log(user);
+            window.location.href = `/results/${joinedResult}`;
+        })
+    } 
+    postUser();
+
 });
+
 
 const checkIfAllQsAnswered = function (joinedResult) {
     if (joinedResult.length === 4) {
@@ -105,4 +129,3 @@ const checkIfAllQsAnswered = function (joinedResult) {
         setToZero();
     }
 }
-
