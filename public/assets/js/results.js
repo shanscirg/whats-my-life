@@ -22,7 +22,10 @@ function setToZero() {
 }
 
 $(document).ready(function () {
-    console.log("")
+    console.log("");
+    // $("#signIn").click(function () {
+
+    // })
     $("#beginButton").click(function () {
         window.location.pathname = `/questions`;
     });
@@ -91,8 +94,8 @@ $(document).ready(function () {
 
 const checkIfAllQsAnswered = function (joinedResult) {
     if (joinedResult.length === 4) {
-        if ($('#inputEmail2').val() === '' || $('#inputPassword2').val() === '') {
-            alert("You must enter both a username and a password.")
+        if ($('#inputEmail2').val() === '' || $('#inputPassword2').val() === '' || $('#inputName2').val() === '') {
+            alert("Please complete all fields to get your results!")
         } else {
             console.log(joinedResult);
             window.location.pathname = `/results/${joinedResult}`;
