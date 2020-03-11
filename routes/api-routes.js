@@ -8,9 +8,22 @@ router.get("/", (req, res) => res.render("home"));
 router.get("/questions", function (req, res) {
     db.Question.findAll({})
         .then(function (data) {
-            const questionObj = {values: []}; 
+            const questionObj = { values: [] };
             data.map(value => questionObj.values.push(value.dataValues))
             res.render("questions", questionObj);
+        });
+});
+
+//router post
+router.post("/api/users/?", (req, res) => {
+    db.User.create({
+        firstName: req.params.firstName,
+        username: req.params.username,
+        password: req.params.password,
+        result: joinedResult
+    })
+        .then(function (userInfo) {
+            res.json(userInfo)
         });
 });
 
