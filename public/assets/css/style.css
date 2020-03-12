@@ -1,13 +1,5 @@
-/* Background */
-/* body, html {
-  height: 100%;
-  margin: 0;
-} */
 body {
-  /* The image used */
   background-image: url("../img/lads_webpage_2.png");
-
-  /* Center and scale the image nicely */
   /* background-position: center; */
   background-repeat: no-repeat;
   /* background-size: cover; */
@@ -21,6 +13,17 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* footer position for landing page  */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Row margin to match container */
@@ -57,3 +60,4 @@ hr:last-child {
 .btn {
   white-space: normal;
 }
+
