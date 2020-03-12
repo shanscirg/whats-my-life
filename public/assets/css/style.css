@@ -42,4 +42,8 @@ body {
 hr:last-child {
   visibility: hidden;
 }
-  
+
+/* responsive text in button  */
+.btn {
+  white-space: normal;
+}
