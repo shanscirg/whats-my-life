@@ -9,7 +9,7 @@
 <!-- Container  -->
 <div class="container">
   <!-- Secion 1 -->
-  <div class="jumbotron p-4 bg-white border">
+  <div class="jumbotron p-3 bg-white border">
     <!-- Personality Type -->
     <h1 class="display-4">{{ title }}</h1>
     <p class="lead">{{ subTitle }}</p>
@@ -24,15 +24,15 @@
     <!-- Column 1 -->
     <div class="col-lg-6">
       <!-- Image -->
-      <img src="/assets/img/{{ image }}" class="card-img-top pr-4" alt="">
+      <img src="/assets/img/{{ image }}" class="card-img-top pb-4 pr-4" alt="">
     </div>
     <!-- Column 2 -->
     <!-- Card -->
     <div class="col-lg-6 card px-0">
       <!-- Overview -->
       <h5 class="card-header">{{ firstName }}'s Overview</h5>
-      <div class="card-body">
-        <p class="card-text">{{ overview }}</p>
+      <div class="card-body pt-4">
+        <p class="card-text mb-0">{{ overview }}</p>
         <!-- Nested Row  -->
         <div class="row text-center">
           <!-- Column 1 -->
@@ -40,7 +40,7 @@
             <!-- Nested Card 1 -->
             <div class="card card1">
               <div class="card-body p-1">
-                <h5 class="card-title pb-0">Strengths</h5>
+                <h5 class="card-title pb-0 pt-4">Strengths</h5>
                 <p class="card-text multiline">{{ strengths }}</p>
               </div>
             </div>
@@ -50,7 +50,7 @@
             <!-- Nested Card 2 -->
             <div class="card card1">
               <div class="card-body p-1">
-                <h5 class="card-title pb-0">Weaknesses</h5>
+                <h5 class="card-title pb-0 pt-4">Weaknesses</h5>
                 <p class="card-text multiline">{{ weaknesses }}</p>
               </div>
             </div>
