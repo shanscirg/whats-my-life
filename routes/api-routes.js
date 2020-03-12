@@ -15,11 +15,11 @@ router.get("/questions", function (req, res) {
 });
 
 //router post
-router.post("/api/users/?", (req, res) => {
+router.post("/api/users", (req, res) => {
     db.User.create({
-        firstName: req.params.firstName,
-        username: req.params.username,
-        password: req.params.password,
+        firstName: req.body.firstName,
+        username: req.body.username,
+        password: req.body.password,
         result: joinedResult
     })
         .then(function (userInfo) {

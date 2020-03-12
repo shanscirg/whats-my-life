@@ -96,21 +96,24 @@ $(document).ready(function () {
     });
 
     // grab user info from form and save to variables
-    const firstName = $("#inputName2").val();
-    const userName = $("#inputEmail2").val();
-    const password = $("#inputPassword2").val();
-    
+    const userInfo = {
+        firstName: $("#inputName2").val(),
+        userName: $("#inputEmail2").val(),
+        password: $("#inputPassword2").val()
+    }
+
     //ajax post request
-    function postUser(user) {
+    function postUser() {
         $.ajax({
             method: "POST",
-            url: `api/users/?firstName=${firstName}&username=${userName}&password=${password}&result=${joinedResult}`, 
+            url: `/api/users`,
+            data: userInfo
         })
-        .then(function(user){
-            console.log(user);
-            window.location.href = `/results/${joinedResult}`;
-        })
-    } 
+            .then(function (user) {
+                console.log(user);
+                window.location.href = `/results/${joinedResult}`;
+            })
+    }
     postUser();
 
 });
