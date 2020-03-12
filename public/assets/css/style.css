@@ -1,30 +1,46 @@
+/* Background */
+/* body, html {
+  height: 100%;
+  margin: 0;
+} */
 body {
-  background-image: url('../img/lads_webpage.png');
+  /* The image used */
+  background-image: url("../img/lads_webpage_2.png");
+
+  /* Center and scale the image nicely */
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* landing page div centered in screen  */
+.ptn-ctr {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Row margin to match container */
 .row1 {
-    margin: auto;
+  margin: auto;
 }
 
 /* Remove border on card of strength and weakness*/
 .card1 {
-    border: none;
+  border: none;
 }
 
 /* Place strengths and weaknesses on multiple lines  */
 .multiline {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 /* Section 3 card margin-bottom  */
 .card2 {
-    margin-bottom: 2rem!important;
-}
-
-/* Change button width  */
-.btn-width {
-  width: 50%;
+  margin-bottom: 2rem!important;
 }
  
 /* Login menu size increase  */
@@ -32,5 +48,12 @@ body {
   width: 225px;
 }
 
+/* line separator for questions (hides the last one) */
+hr:last-child {
+  visibility: hidden;
+}
 
-  
+/* responsive text in button  */
+.btn {
+  white-space: normal;
+}
