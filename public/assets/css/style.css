@@ -8,11 +8,19 @@ body {
   background-image: url("../img/lads_webpage_2.png");
 
   /* Center and scale the image nicely */
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
   /* background-size: cover; */
   background-attachment: fixed;
   background-size: 100% 100%;
+}
+
+/* landing page div centered in screen  */
+.ptn-ctr {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Row margin to match container */
