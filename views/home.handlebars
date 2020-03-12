@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand bg-transparent navbar-light sticky-top">
     <div class="nav navbar-nav ml-auto">
+        <p class="m-1 pr-2">Returning User?</p>
         <div class="nav-item dropdown btn btn-warning px-3 py-0">
             <a class="nav-link dropdown-toggle text-body" href="#" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
@@ -15,23 +16,33 @@
                         <input type="password" class="form-control" id="exampleDropdownFormPassword1"
                             placeholder="Password">
                     </div>
-                    <a type="submit" id= "signIn" class="btn btn-warning">Sign In</a>
+                    <a type="submit" id="signIn" class="btn btn-warning">Sign In</a>
                 </form>
             </div>
         </div>
     </div>
 </nav>
 
-<div class="container w-50">
-    <div class="jumbotron bg-white text-center border">
-        <img src="/assets/img/lads_logo2.png" class="mb-4"></img>
-        <div class="lead pt-4">
-            <p>How's your self-awareness? Get a new perspective on you.</p>
-            <p>Taken by over 2 million people annually, the Myers Briggs Type Indicator (MBTI) is the most popular personality test in the world.</p>
-            <p>Let these personality insights guide your success.</p>
+<div class="container w-75">
+    <div class="jumbotron bg-white text-center border py-4">
+        {{!-- Logo Input --}}
+        <div class="card card1">
+            <div class="card-body p-0">
+                <img src="../assets/img/lads_logo2.png" class="img-fluid" alt="">
+            </div>
+        </div>
+        {{!-- ^^^^^ --}}
+        <div class="lead pt-2">
+            <p>How's your self-awareness? Want a new perspective on you?</p>
+            <p>Taken by over 2 million people annually, the Myers Briggs Type Indicator (MBTI) is the most popular
+                personality test in the world.</p>
+            <p>Let these new personality insights guide your success.</p>
         </div>
         <hr class="my-4">
-        <p class="lead">Want to learn more? Take your free test now! </p>
-        <a class="btn btn-warning btn-lg btn-block mt-4" id="beginButton" role="button">Let's Begin!</a>
+        <p class="lead">Want to learn more? Take our free quiz now! </p>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-warning btn-lg btn-block mt-4 w-50" id="beginButton" role="button">Let's Begin!</a>
+        </div>
+
     </div>
 </div>
