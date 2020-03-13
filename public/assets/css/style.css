@@ -1,16 +1,6 @@
-/* Background */
-/* body, html {
-  height: 100%;
-  margin: 0;
-} */
 body {
-  /* The image used */
-  background-image: url("../img/lads_webpage_2.png");
-
-  /* Center and scale the image nicely */
-  /* background-position: center; */
+  background-image: url("../img/lads_webpage_2_distressed_2.png");
   background-repeat: no-repeat;
-  /* background-size: cover; */
   background-attachment: fixed;
   background-size: 100% 100%;
 }
@@ -21,6 +11,17 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* footer position for landing page  */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Row margin to match container */
@@ -56,4 +57,9 @@ hr:last-child {
 /* responsive text in button  */
 .btn {
   white-space: normal;
+  background-color: #fcb060;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+  background-color: #fb8b15;
 }
