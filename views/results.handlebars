@@ -8,10 +8,16 @@
 
 <!-- Container  -->
 <div class="container">
+
+  <!-- Section 0 -->
+  {{!-- <div class="jumbotron p-3 bg-white border border-dark mx-5">
+    <h1 class="display-7 text-center">{{ data.dataValues.firstName }}'s Results</h1>
+  </div> --}}
+
   <!-- Section 1 -->
   <div class="jumbotron p-3 bg-white border border-dark">
     <!-- Personality Type -->
-    <h1 class="display-4">{{ personality.title }}</h1>
+    <h1 class="display-4">{{ data.dataValues.firstName }}, you are {{ personality.title }}!</h1>
     <p class="lead">{{ personality.subTitle }}</p>
     <hr class="my-2">
     <!-- Description -->
@@ -30,7 +36,7 @@
     <!-- Card -->
     <div class="col-lg-6 card px-0 border border-dark">
       <!-- Overview -->
-      <h5 class="card-header" id="firstNameOverview">{{ data.dataValues.firstName}}'s Overview</h5>
+      <h5 class="card-header" id="firstNameOverview">{{ data.dataValues.firstName }}'s Overview</h5>
       <div class="card-body pt-4">
         <p class="card-text mb-0">{{ personality.overview }}</p>
         <!-- Nested Row  -->
@@ -181,7 +187,7 @@
 <!-- End of Container  -->
 
 <footer class="py-2 bg-transparent text-black sticky-bottom">
-    <div class="text-center">
-        <p>&copy; 2020 What's my Life!?</p>
-    </div>
+  <div class="text-center">
+    <p>&copy; 2020 What's my Life!?</p>
+  </div>
 </footer>

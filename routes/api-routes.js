@@ -53,19 +53,19 @@ router.get("/results/:result/:id", (req, res) => {
     const [personality] = results.filter(item => item.type === req.params.result.toUpperCase())
     // console.log("parseInt(req.params.id)", typeof parseInt(req.params.id));
     // if (typeof parseInt(req.params.id) === Number) {
-        return db.User.findOne({
-            where: {
-                id: req.params.id,
+    return db.User.findOne({
+        where: {
+            id: req.params.id,
+        }
+    })
+        .then(data => {
+            console.log('find one where id is req.params.id', data);
+            return res.render("results", {
+                data,
+                personality
             }
-        })
-            .then(data => {
-                console.log('find one where id is req.params.id', data);
-                return res.render("results", {
-                    data,
-                    personality
-                }
-                );
-            });
+            );
+        });
     // }
     // console.log(personality);
     // res.render("results", { personality, data: {dataValues: {firstName: req.params.id}} });
