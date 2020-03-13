@@ -1,22 +1,25 @@
-const express = require("express");
+// Require NPM packages
+const express = require('express');
 const router = express.Router();
-const results = require("../personalities/personality");
-const db = require("../models");
+const results = require('../personalities/personality');
+const db = require('../models');
+const bcrypt = require('bcryptjs');
 
-router.get("/", (req, res) => res.render("home"));
+// Render 'Home' handlebars template at root
+router.get('/', (req, res) => res.render('home'));
 
-router.get("/questions", function (req, res) {
+// Render 'Questions' handlebars template and insert all questions from db
+router.get('/questions', (req, res) => {
     db.Question.findAll({})
-        .then(function (data) {
+        .then(data => {
             const questionObj = { values: [] };
             data.map(value => questionObj.values.push(value.dataValues))
-            res.render("questions", questionObj);
+            res.render('questions', questionObj);
         });
 });
 
-//router post to database
-router.post("/api/users", (req, res) => {
-    console.log('req.body', req.body);
+// Create new user in db and send to front end
+router.post('/api/users', (req, res) => {
     db.User.create({
         firstName: req.body.firstName,
         username: req.body.username,
@@ -24,16 +27,12 @@ router.post("/api/users", (req, res) => {
         result: req.body.result
     })
         .then(userInfo => {
-            console.log(userInfo);
             res.json(userInfo);
         });
 });
 
-// router.get("/results", (req, res) => res.sendFile(path.join(__dirname, "../public/views/results.handlebars")));
-
-
-//router post to 
-router.post("/api/sign-in", (req, res) => {
+// When user signs in, find their info in the db and send to front end
+router.post('/api/sign-in', (req, res) => {
     db.User.findOne({
         where: {
             username: req.body.username,
@@ -41,7 +40,6 @@ router.post("/api/sign-in", (req, res) => {
         }
     })
         .then(data => {
-            // console.log('data', data)
             if (!data) {
                 return res.json(data);
             }
@@ -49,26 +47,74 @@ router.post("/api/sign-in", (req, res) => {
         });
 })
 
-router.get("/results/:result/:id", (req, res) => {
+
+// PASSWORD HASH BCRYPT
+// const saltRounds = 10;
+// router.post('/api/users', (req, res) => {
+//     console.log('req.body', req.body);
+//     bcrypt.genSalt(saltRounds, (err, salt) => {
+//         if (err) {
+//             throw err
+//         } else {
+//             bcrypt.hash(req.body.password, salt, (err, hash) => {
+//                 if (err) {
+//                     throw err
+//                 } else {
+//                     db.User.create({
+//                         firstName: req.body.firstName,
+//                         username: req.body.username,
+//                         password: hash,
+//                         result: req.body.result
+//                     })
+//                 }
+//             });
+//         }
+//     })
+//         .then(userInfo => {
+//             console.log(userInfo);
+//             res.json(userInfo);
+//         })
+// });
+
+// router.post('/api/sign-in', (req, res) => {
+//     db.User.findOne({
+//         where: {
+//             username: req.body.username,
+//         }
+//     })
+//         .then(user => {
+//             // console.log('data', data)
+//             if (!user) {
+//                 return res.json(user);
+//             } else {
+//                 bcrypt.compare(req.body.password, hash, (err, result) => {
+//                     if (result) {
+//                         console.log('Password matches!')
+//                         res.json(user);
+//                     } else {
+//                         console.log('Incorrect password. Try again!')
+//                     }
+//                 })
+//             }
+//         });
+// })
+
+
+// Render 'Results' handlebars template based on user id from db and insert personality info from personality.js based on user result
+router.get('/results/:result/:id', (req, res) => {
     const [personality] = results.filter(item => item.type === req.params.result.toUpperCase())
-    // console.log("parseInt(req.params.id)", typeof parseInt(req.params.id));
-    // if (typeof parseInt(req.params.id) === Number) {
     return db.User.findOne({
         where: {
             id: req.params.id,
         }
     })
         .then(data => {
-            console.log('find one where id is req.params.id', data);
-            return res.render("results", {
+            return res.render('results', {
                 data,
                 personality
             }
             );
         });
-    // }
-    // console.log(personality);
-    // res.render("results", { personality, data: {dataValues: {firstName: req.params.id}} });
 });
 
 module.exports = router;
