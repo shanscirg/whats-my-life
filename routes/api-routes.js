@@ -14,23 +14,59 @@ router.get("/questions", function (req, res) {
         });
 });
 
-//router post
+//router post to database
 router.post("/api/users", (req, res) => {
+    console.log('req.body', req.body);
     db.User.create({
         firstName: req.body.firstName,
         username: req.body.username,
         password: req.body.password,
-        result: joinedResult
+        result: req.body.result
     })
-        .then(function (userInfo) {
-            res.json(userInfo)
-        });
+        .then(userInfo => res.json(userInfo));
 });
 
-router.get("/results/:result", (req, res) => {
-    const personality = results.filter(item => item.type === req.params.result.toUpperCase())
-    console.log(personality);
-    res.render("results", personality[0]);
+// router.get("/results", (req, res) => res.sendFile(path.join(__dirname, "../public/views/results.handlebars")));
+
+
+//router post to 
+router.post("/api/sign-in", (req, res) => {
+    db.User.findOne({
+        where: {
+            username: req.body.username,
+            password: req.body.password
+        }
+    })
+        .then(data => {
+            // console.log('data', data)
+            if (!data) {
+                return res.json(data);
+            }
+            res.json(data);
+        });
+})
+
+router.get("/results/:result/:id?", (req, res) => {
+    const [personality] = results.filter(item => item.type === req.params.result.toUpperCase())
+    console.log("req.params.id", req.params.id);
+    if (req.params.id) {
+        return db.User.findOne({
+            where: {
+                id: req.params.id,
+            }
+        })
+            .then(data => {
+                console.log('find one where id is req.params.id', data);
+                
+                return res.render("results", {
+                    data,
+                    personality
+                }
+                    );
+            });
+    }
+    // console.log(personality);
+    res.render("results", personality);
 });
 
 module.exports = router;

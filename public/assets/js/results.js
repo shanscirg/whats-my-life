@@ -8,7 +8,9 @@ let T = 0;
 let J = 0;
 let P = 0;
 let result = [];
-let joinedResult = "";
+let joinedResult;
+// let overviewUserFirstName;
+// let funUserFirstName;
 
 function setToZero() {
     E = 0;
@@ -23,9 +25,24 @@ function setToZero() {
 }
 
 $(document).ready(function () {
-    console.log("");
+    const getUserId = localStorage.getItem("userId");
+    const getUserResult = localStorage.getItem("userResult");
+    console.log(window.location.pathname.split(`/`)[1]);
+    if(window.location.pathname.split(`/`)[1] === `result`){
+        $.ajax({
+            method: "GET",
+            url: "/results/" + getUserResult + "/" + getUserId
+        })
+            .then(data => console.log(data));
+    }
+    
     $("#signIn").click(function () {
-        window.location.pathname = `/results/INFP`;
+        const userSignIn = $("#userSignIn").val();
+        const passwordSignIn = $("#passwordSignIn").val();
+        signInUser(userSignIn, passwordSignIn);
+        // $("#firstNameOverview").text(overviewUserFirstName);
+        // $("#funFactsName").text(funUserFirstName);
+        // console.log(overviewUserFirstName, funUserFirstName);
     });
     $("#signOut").click(function () {
         window.location.pathname = `/`;
@@ -66,10 +83,10 @@ $(document).ready(function () {
                 P++
             }
         };
-        console.log("E, I", E, I);
-        console.log("S, N", S, N);
-        console.log("F, T", F, T);
-        console.log("J, P", J, P);
+        // console.log("E, I", E, I);
+        // console.log("S, N", S, N);
+        // console.log("F, T", F, T);
+        // console.log("J, P", J, P);
         if (E > I && ((E + I) === 5)) {
             result.push("E");
         } else if (I > E && ((E + I) === 5)) {
@@ -91,40 +108,73 @@ $(document).ready(function () {
             result.push("P");
         }
         joinedResult = result.join("");
-        console.log(joinedResult);
+        // console.log("joinedResult", joinedResult);
         checkIfAllQsAnswered(joinedResult);
+        createUser();
+        // $("#firstNameOverview").text(overviewUserFirstName);
+        // $("#funFactsName").text(funUserFirstName);
     });
 
     // grab user info from form and save to variables
-    const userInfo = {
-        firstName: $("#inputName2").val(),
-        userName: $("#inputEmail2").val(),
-        password: $("#inputPassword2").val()
-    }
 
-    //ajax post request
-    function postUser() {
+    // insert first name to results
+    // const firstNameOverview = $("#firstNameOverview").text();
+    // const funFactsName = $("#funFactsName").text();
+
+    //ajax post request to post to database
+    const createUser = () => {
+        const userInfo = {
+            firstName: $("#inputName2").val(),
+            username: $("#inputEmail2").val(),
+            password: $("#inputPassword2").val(),
+            result: joinedResult
+        }
         $.ajax({
             method: "POST",
-            url: `/api/users`,
+            url: "/api/users",
             data: userInfo
         })
-            .then(function (user) {
-                console.log(user);
+            .then(user => {
+                console.log("userInfo", userInfo)
+                console.log("user", user);
                 window.location.href = `/results/${joinedResult}`;
+                // overviewUserFirstName = user.firstName + firstNameOverview;
+                // funFirstName = funFactsName + user.firstName + "!"
             })
     }
-    postUser();
 
+    // post request to post user data to server
+    const signInUser = (username, password) => {
+        $.ajax({
+            method: "POST",
+            url: "/api/sign-in",
+            data: {
+                username: username,
+                password: password
+            }
+        })
+            .then(data => {
+                if (!data) {
+                    return alert("Username and password do not match.")
+                }
+                // location.reload();
+                console.log(data);
+                localStorage.setItem("userId", data.id);
+                localStorage.setItem("userResult", data.result)
+                window.location.href = `/results/${data.result}/${data.id}`;
+                // overviewUserFirstName = data.firstName + firstNameOverview;
+                // funFirstName = funFactsName + data.firstName + "!";
+            });
+    }
 });
 
 
-const checkIfAllQsAnswered = function (joinedResult) {
+const checkIfAllQsAnswered = (joinedResult) => {
     if (joinedResult.length === 4) {
         if ($('#inputEmail2').val() === '' || $('#inputPassword2').val() === '' || $('#inputName2').val() === '') {
             alert("Please complete all fields to get your results!")
         } else {
-            console.log(joinedResult);
+            // console.log("joinedResult", joinedResult);
             window.location.pathname = `/results/${joinedResult}`;
         }
     } else {
