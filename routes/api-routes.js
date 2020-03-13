@@ -23,7 +23,10 @@ router.post("/api/users", (req, res) => {
         password: req.body.password,
         result: req.body.result
     })
-        .then(userInfo => res.json(userInfo));
+        .then(userInfo => {
+            console.log(userInfo);
+            res.json(userInfo);
+        });
 });
 
 // router.get("/results", (req, res) => res.sendFile(path.join(__dirname, "../public/views/results.handlebars")));
@@ -46,10 +49,10 @@ router.post("/api/sign-in", (req, res) => {
         });
 })
 
-router.get("/results/:result/:id?", (req, res) => {
+router.get("/results/:result/:id", (req, res) => {
     const [personality] = results.filter(item => item.type === req.params.result.toUpperCase())
-    console.log("req.params.id", req.params.id);
-    if (req.params.id) {
+    // console.log("parseInt(req.params.id)", typeof parseInt(req.params.id));
+    // if (typeof parseInt(req.params.id) === Number) {
         return db.User.findOne({
             where: {
                 id: req.params.id,
@@ -57,16 +60,15 @@ router.get("/results/:result/:id?", (req, res) => {
         })
             .then(data => {
                 console.log('find one where id is req.params.id', data);
-                
                 return res.render("results", {
                     data,
                     personality
                 }
-                    );
+                );
             });
-    }
+    // }
     // console.log(personality);
-    res.render("results", personality);
+    // res.render("results", { personality, data: {dataValues: {firstName: req.params.id}} });
 });
 
 module.exports = router;

@@ -9,8 +9,6 @@ let J = 0;
 let P = 0;
 let result = [];
 let joinedResult;
-// let overviewUserFirstName;
-// let funUserFirstName;
 
 function setToZero() {
     E = 0;
@@ -25,6 +23,10 @@ function setToZero() {
 }
 
 $(document).ready(function () {
+    // let firstName = localStorage.getItem(firstName);
+    // $("#firstNameOverview").text(firstName);
+    // $("#funFactsName").text(funUserFirstName);
+    // console.log(firstName, funUserFirstName);
     const getUserId = localStorage.getItem("userId");
     const getUserResult = localStorage.getItem("userResult");
     console.log(window.location.pathname.split(`/`)[1]);
@@ -40,9 +42,6 @@ $(document).ready(function () {
         const userSignIn = $("#userSignIn").val();
         const passwordSignIn = $("#passwordSignIn").val();
         signInUser(userSignIn, passwordSignIn);
-        // $("#firstNameOverview").text(overviewUserFirstName);
-        // $("#funFactsName").text(funUserFirstName);
-        // console.log(overviewUserFirstName, funUserFirstName);
     });
     $("#signOut").click(function () {
         window.location.pathname = `/`;
@@ -109,8 +108,9 @@ $(document).ready(function () {
         }
         joinedResult = result.join("");
         // console.log("joinedResult", joinedResult);
-        checkIfAllQsAnswered(joinedResult);
-        createUser();
+        if(checkIfAllQsAnswered(joinedResult)){
+            createUser();
+        }
         // $("#firstNameOverview").text(overviewUserFirstName);
         // $("#funFactsName").text(funUserFirstName);
     });
@@ -135,9 +135,8 @@ $(document).ready(function () {
             data: userInfo
         })
             .then(user => {
-                console.log("userInfo", userInfo)
-                console.log("user", user);
-                window.location.href = `/results/${joinedResult}`;
+                console.log("create user user info", user);
+                window.location.href = `/results/${joinedResult}/${user.id}`;
                 // overviewUserFirstName = user.firstName + firstNameOverview;
                 // funFirstName = funFactsName + user.firstName + "!"
             })
@@ -158,7 +157,7 @@ $(document).ready(function () {
                     return alert("Username and password do not match.")
                 }
                 // location.reload();
-                console.log(data);
+                console.log('signin user data', data);
                 localStorage.setItem("userId", data.id);
                 localStorage.setItem("userResult", data.result)
                 window.location.href = `/results/${data.result}/${data.id}`;
@@ -173,12 +172,15 @@ const checkIfAllQsAnswered = (joinedResult) => {
     if (joinedResult.length === 4) {
         if ($('#inputEmail2').val() === '' || $('#inputPassword2').val() === '' || $('#inputName2').val() === '') {
             alert("Please complete all fields to get your results!")
+            return false
         } else {
+            return true
             // console.log("joinedResult", joinedResult);
-            window.location.pathname = `/results/${joinedResult}`;
+            // window.location.pathname = `/results/${joinedResult}`;
         }
     } else {
         alert("Please answer all questions.");
         setToZero();
+        return false
     }
 }
