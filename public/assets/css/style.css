@@ -5,7 +5,7 @@
 } */
 body {
   /* The image used */
-  background-image: url("../img/lads_webpage_2.png");
+  background-image: url("../img/lads_webpage_distressed.png");
 
   /* Center and scale the image nicely */
   /* background-position: center; */
@@ -56,4 +56,9 @@ hr:last-child {
 /* responsive text in button  */
 .btn {
   white-space: normal;
+  background-color: #fcb060;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+  background-color: #fb8b15;
 }
