@@ -1,5 +1,9 @@
 body {
-  background-image: url("../img/lads_webpage_2.png");
+  /* The image used */
+  background-image: url("../img/lads_webpage_distressed.png");
+
+  /* Center and scale the image nicely */
+  /* background-position: center; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -57,5 +61,14 @@ hr:last-child {
 /* responsive text in button  */
 .btn {
   white-space: normal;
+<<<<<<< HEAD
 }
 
+=======
+  background-color: #fcb060;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+  background-color: #fb8b15;
+}
+>>>>>>> dab2fd82613a715efc31f4c87a4f01b10c8748d2
