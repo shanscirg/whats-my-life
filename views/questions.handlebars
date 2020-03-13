@@ -4,18 +4,18 @@
             <a class="nav-link dropdown-toggle text-body" href="#" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <form class="px-4 py-3">
+                <form class="px-4 py-3" action="/questions" method="POST">
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1"
-                            placeholder="email@example.com">
+                        <label for="exampleDropdownFormUsername1">Username</label>
+                        <input type="Username" class="form-control" id="exampleDropdownFormUsername1"
+                            placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="exampleDropdownFormPassword1">Password</label>
                         <input type="password" class="form-control" id="exampleDropdownFormPassword1"
                             placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-warning">Sign In</button>
+                    <a type="submit" id="signIn" class="btn btn-warning">Sign In</a>
                 </form>
             </div>
         </div>
@@ -23,37 +23,44 @@
 </nav>
 
 <div class="container w-75">
-    <div class="jumbotron bg-white border">
-        <h1 class="display-4 mb-4 text-center">What is My Life?!</h1>
+    <div class="jumbotron bg-white border border-dark py-4">
+        {{!-- Logo Input --}}
+        <div class="card card1">
+            <div class="card-body p-0">
+                <img src="../assets/img/lads_logo2.png" class="img-fluid" alt="">
+            </div>
+        </div>
+        {{!-- ^^^^^ --}}
         <p class="text-center lead mx-4 px-4"> Simply answer the 20 questions below. Be sure to select the option that
-            best describes yourself in order to receive accurate information on your true personality type.</p>
+            best describes yourself in order to receive accurate information on your personality type.</p>
         <!-- Card holding question  -->
-        <div class="card my-1">
-            <div class="card-body">
+        <div class="card mt-2 mb-4">
+            <div class="card-body lead pb-0">
                 {{#each values}}
                 <!-- Row -->
-                <div class="row row1">
+                <div class="row row1 m-1">
                     <!-- Column 1 for question  -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-9 col-md-12">
                         <div class="card card1">
                             <div class="card-body p-0">{{question}}</div>
                         </div>
                     </div>
                     <!-- Column 2 for Radio Btn (true) -->
-                    <div class="col">
+                    <div class="col-lg-1 col-md-6 col-sm-12 mx-2">
                         <div id="{{id}}" class="form-check">
                             <input class="form-check-input" type="radio" name="{{id}}" id="true" value="1">
                             <label class="form-check-label" for="exampleRadios1">True</label>
                         </div>
                     </div>
                     <!-- Column 3 for Radio Btn (false) -->
-                    <div class="col">
+                    <div class="col-lg-1 col-md-6 col-sm-12 mx-2">
                         <div id="{{id}}" class="form-check">
                             <input class="form-check-input" type="radio" name="{{id}}" id="false" value="0">
                             <label class="form-check-label" for="exampleRadios2">False</label>
                         </div>
                     </div>
                 </div>
+                <hr>
                 {{else}}
                 <p>No questions available</p>
                 {{/each}}
@@ -63,30 +70,47 @@
         <!-- End of Card -->
 
         <!-- Email and password  -->
-        <p class="text-center mt-4">Please enter your first name and create a username and password below in order for your results to be
-            saved and viewed again at a later time!</p>
-        <form class="form-inline d-flex justify-content-center">
-            <label for="staticEmail">First Name:</label>
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="inputName2" class="sr-only">firstName</label>
-                <input type="name" class="form-control" id="inputName2" placeholder="">
-            </div>
-            <label for="staticEmail">Username:</label>
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="inputEmail2" class="sr-only">Username</label>
-                <input type="email" class="form-control" id="inputEmail2" placeholder="">
-            </div>
-            <label for="staticEmail">Password:</label>
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="inputPassword2" class="sr-only">Password</label>
-                <input type="password" class="form-control" id="inputPassword2" placeholder="">
-            </div>
-        </form>
+        <p class="text-center py-4 mb-0 lead">Now let's save your results so you can view them at anytime! Please fill out the fields below. </p>
+            <form class="form-group row row1 lead" method="POST">
+                <div class="col-lg-4 col-md-12 ">
+                    <div class="row">
+                        <label for="staticEmail">First Name:</label>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12 pl-0 pr-2 mb-2">
+                            <label for="inputName2" class="sr-only">firstName</label>
+                            <input type="name" class="form-control" name="newfirstname" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="row">
+                        <label for="staticEmail"> Create Username:</label>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12 pl-0 pr-2 mb-2">
+                            <label for="inputEmail2" class="sr-only">Username</label>
+                            <input type="email" class="form-control" name="newusername" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="row">
+                        <label for="staticEmail"> Create Password:</label>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12 pl-0 pr-2 mb-2">
+                            <label for="inputPassword2" class="sr-only">Password</label>
+                            <input type="password" class="form-control" name="newpassword" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </form>
         <!-- End  -->
 
         <!-- Results Button  -->
         <div class="d-flex justify-content-center">
-            <button class="btn btn-warning btn-lg btn-block mt-4 w-25" id="submitFinal">View Results!</button>
+            <button class="btn btn-warning btn-lg btn-block mt-4 w-50" id="submitFinal"> Save and View Results!</button>
         </div>
         <!-- End of Btn  -->
     </div>

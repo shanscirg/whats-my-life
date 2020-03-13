@@ -1,4 +1,3 @@
-// calculate results
 let E = 0;
 let I = 0;
 let S = 0;
@@ -93,28 +92,10 @@ $(document).ready(function () {
         joinedResult = result.join("");
         console.log(joinedResult);
         checkIfAllQsAnswered(joinedResult);
-    });
 
-    // grab user info from form and save to variables
-    const firstName = $("#inputName2").val();
-    const userName = $("#inputEmail2").val();
-    const password = $("#inputPassword2").val();
-    
-    //ajax post request
-    function postUser(user) {
-        $.ajax({
-            method: "POST",
-            url: `api/users/?firstName=${firstName}&username=${userName}&password=${password}&result=${joinedResult}`, 
-        })
-        .then(function(user){
-            console.log(user);
-            window.location.href = `/results/${joinedResult}`;
-        })
-    } 
-    postUser();
-
+        createUser();
+    })
 });
-
 
 const checkIfAllQsAnswered = function (joinedResult) {
     if (joinedResult.length === 4) {
@@ -128,4 +109,21 @@ const checkIfAllQsAnswered = function (joinedResult) {
         alert("Please answer all questions.");
         setToZero();
     }
+};
+
+const createUser = () => {
+    $.ajax({
+        method: "POST",
+        url: "/questions",
+        data: {
+            firstName: req.body.newfirstname,
+            username: req.body.newusername,
+            password: req.body.newpassword,
+            result: req.body.result
+        }
+    })
+        .then(user => {
+            console.log(user);
+            window.location.href = `/results/${joinedResult}`;
+        })
 }
