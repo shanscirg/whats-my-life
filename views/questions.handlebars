@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand bg-transparent navbar-light sticky-top">
     <div class="nav navbar-nav ml-auto">
-        <div class="nav-item dropdown btn btn-warning px-3 py-0">
+        <div class="nav-item dropdown btn btn-warning px-3 py-0 border border-dark">
             <a class="nav-link dropdown-toggle text-body" href="#" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <form class="px-4 py-3" action="/questions" method="POST">
                     <div class="form-group">
-                        <label for="exampleDropdownFormUsername1">Username</label>
-                        <input type="Username" class="form-control" id="exampleDropdownFormUsername1"
+                        <label for="exampleDropdownFormEmail1">Username</label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1"
                             placeholder="Username">
                     </div>
                     <div class="form-group">
@@ -70,49 +70,56 @@
         <!-- End of Card -->
 
         <!-- Email and password  -->
-        <p class="text-center py-4 mb-0 lead">Now let's save your results so you can view them at anytime! Please fill out the fields below. </p>
-            <form class="form-group row row1 lead" method="POST">
-                <div class="col-lg-4 col-md-12 ">
-                    <div class="row">
-                        <label for="staticEmail">First Name:</label>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-12 pl-0 pr-2 mb-2">
-                            <label for="inputName2" class="sr-only">firstName</label>
-                            <input type="name" class="form-control" name="newfirstname" placeholder="">
-                        </div>
+        <p class="text-center py-4 mb-0 lead">Now let's save your results so you can view them at anytime! Please fill
+            out the fields below to sign up. </p>
+        <form class="form-group row row1 lead">
+            <div class="col-lg-4 col-md-12 ">
+                <div class="row">
+                    <label for="staticEmail">First Name:</label>
+                </div>
+                <div class="row">
+                    <div class="form-group col-12 pl-0 pr-2 mb-2">
+                        <label for="inputName2" class="sr-only">firstName</label>
+                        <input type="name" class="form-control" id="inputName2" placeholder="">
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="row">
-                        <label for="staticEmail"> Create Username:</label>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-12 pl-0 pr-2 mb-2">
-                            <label for="inputEmail2" class="sr-only">Username</label>
-                            <input type="email" class="form-control" name="newusername" placeholder="">
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="row">
+                    <label for="staticEmail"> Create Username:</label>
+                </div>
+                <div class="row">
+                    <div class="form-group col-12 pl-0 pr-2 mb-2">
+                        <label for="inputEmail2" class="sr-only">Username</label>
+                        <input type="email" class="form-control" id="inputEmail2" placeholder="">
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="row">
-                        <label for="staticEmail"> Create Password:</label>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-12 pl-0 pr-2 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
-                            <input type="password" class="form-control" name="newpassword" placeholder="">
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="row">
+                    <label for="staticEmail"> Create Password:</label>
+                </div>
+                <div class="row">
+                    <div class="form-group col-12 pl-0 pr-2 mb-2">
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input type="password" class="form-control" id="inputPassword2" placeholder="Must be at least 8 letters">
                     </div>
                 </div>
-            </form>
+            </div>
+        </form>
         <!-- End  -->
 
         <!-- Results Button  -->
         <div class="d-flex justify-content-center">
-            <button class="btn btn-warning btn-lg btn-block mt-4 w-50" id="submitFinal"> Save and View Results!</button>
+            <button class="btn btn-warning btn-lg btn-block mt-4 w-50 border border-dark" id="submitFinal"> Save and View Results!</button>
         </div>
         <!-- End of Btn  -->
     </div>
 </div>
 <!-- End of Container -->
+
+<footer class="py-2 bg-transparent text-black sticky-bottom">
+    <div class="text-center">
+        <p>&copy; 2020 What's my Life!?</p>
+    </div>
+</footer>
