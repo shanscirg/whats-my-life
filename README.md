@@ -1,7 +1,7 @@
 # Project 2 - What's my Life!?
 
 ## Description
-This application prompts the user to take a 20-question personality quiz. The user receives personalized results including their Myer Briggs Indicator Type (4-letter acronym), a detailed description of the specific type, and six fun facts. The user is also prompted to create a username and password in order to sign in and view their results at any time.
+This application prompts the user to take a 20-question personality quiz. The user receives personalized results including their Myers Briggs Indicator Type (4-letter acronym), a detailed description of the specific type, and six fun facts. The user is also prompted to create a username and password in order to sign in and view their results at any time.
 
 ## Project Details
 Motivation for Development - We saw this as a challenging and creative concept with lots of room for future development. 
