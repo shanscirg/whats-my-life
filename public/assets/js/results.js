@@ -156,9 +156,13 @@ $(document).ready(() => {
             }
         })
             .then(data => {
-                localStorage.setItem('userId', data.id);
-                localStorage.setItem('userResult', data.result)
-                window.location.href = `/results/${data.result}/${data.id}`;
+                if(!data){
+                    alert(`Username does not exist. Click "Let's Begin" down below!`)
+                } else {
+                    localStorage.setItem('userId', data.id);
+                    localStorage.setItem('userResult', data.result)
+                    window.location.href = `/results/${data.result}/${data.id}`;
+                }
             }).catch(err => {
                 alert(err.responseJSON.message);
             });
