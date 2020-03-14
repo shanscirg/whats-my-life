@@ -1,28 +1,65 @@
-/* *********Personality HTML******* */
+body {
+  background-image: url("../img/lads_webpage_2_distressed_2.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
 
-/* Container margin  */
-.container {
-    margin-top: 2rem!important;
+/* landing page div centered in screen  */
+.ptn-ctr {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* footer position for landing page  */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Row margin to match container */
 .row1 {
-    margin: auto;
+  margin: auto;
 }
 
 /* Remove border on card of strength and weakness*/
 .card1 {
-    border: none;
+  border: none;
 }
 
 /* Place strengths and weaknesses on multiple lines  */
 .multiline {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 /* Section 3 card margin-bottom  */
 .card2 {
-    margin-bottom: 2rem!important;
+  margin-bottom: 2rem!important;
+}
+ 
+/* Login menu size increase  */
+.dropdown-menu {
+  width: 225px;
 }
 
-/* ******* End of Personality HTML ******* */
+/* line separator for questions (hides the last one) */
+hr:last-child {
+  visibility: hidden;
+}
+
+/* responsive text in button  */
+.btn {
+  white-space: normal;
+  background-color: #fcb060;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+  background-color: #fb8b15;
+}
