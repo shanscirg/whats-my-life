@@ -1,4 +1,4 @@
-// calculate results
+// Variables to store user responses 
 let E = 0;
 let I = 0;
 let S = 0;
@@ -10,7 +10,8 @@ let P = 0;
 let result = [];
 let joinedResult;
 
-function setToZero() {
+// Re-setting user response variables to zero in the case they forget to answer all questions
+const setToZero = () => {
     E = 0;
     I = 0;
     S = 0;
@@ -22,34 +23,44 @@ function setToZero() {
     result = [];
 }
 
-$(document).ready(function () {
-    // let firstName = localStorage.getItem(firstName);
-    // $("#firstNameOverview").text(firstName);
-    // $("#funFactsName").text(funUserFirstName);
-    // console.log(firstName, funUserFirstName);
-    const getUserId = localStorage.getItem("userId");
-    const getUserResult = localStorage.getItem("userResult");
-    console.log(window.location.pathname.split(`/`)[1]);
-    if(window.location.pathname.split(`/`)[1] === `result`){
+// When document loads
+$(document).ready(() => {
+    // Get user ID and result from local storage
+    const getUserId = localStorage.getItem('userId');
+    const getUserResult = localStorage.getItem('userResult');
+
+    // GET request to redirect to results page with user's id and result
+    if (window.location.pathname.split(`/`)[1] === `result`) {
         $.ajax({
-            method: "GET",
-            url: "/results/" + getUserResult + "/" + getUserId
+            method: 'GET',
+            url: '/results/' + getUserResult + '/' + getUserId
         })
             .then(data => console.log(data));
     }
-    
-    $("#signIn").click(function () {
-        const userSignIn = $("#userSignIn").val();
-        const passwordSignIn = $("#passwordSignIn").val();
+
+    // On click function for 'Sign In' button that saves username and password and runs signIn function
+    $('#signIn').click(() => {
+        const userSignIn = $('#userSignIn').val();
+        const passwordSignIn = $('#passwordSignIn').val();
         signInUser(userSignIn, passwordSignIn);
     });
-    $("#signOut").click(function () {
+
+    // On click function for 'Home' button that redirects to home page
+    $('#signOut').click(() => {
         window.location.pathname = `/`;
     });
-    $("#beginButton").click(function () {
+
+    // On click function for 'Let's Begin' button that redirects to questions page
+    $('#beginButton').click(() => {
         window.location.pathname = `/questions`;
     });
-    $("#submitFinal").click(function () {
+
+    // On click function for 'Save and View Results' button that:
+    // Generates user's four-letter result if all Q's are answered & user form is filled out
+    // Saves user info to create user
+    $('#submitFinal').click(() => {
+
+        // Four for-loops for each set of five questions to add to letter variables based on if they selected true or false 
         for (let i = 0; i < 6; i++) {
             var radioValue = $(`input[name='${i}']:checked`).val();
             if (radioValue === '1') {
@@ -82,104 +93,90 @@ $(document).ready(function () {
                 P++
             }
         };
-        // console.log("E, I", E, I);
-        // console.log("S, N", S, N);
-        // console.log("F, T", F, T);
-        // console.log("J, P", J, P);
+
+        // If/else statements to...
+        // Check which letter to push to results array to ensure only 4 letters get generated as the final result
+        // Make sure each letter pair adds up to five. If user doesn't answer all questions at first, it messes with the number for each variable.
         if (E > I && ((E + I) === 5)) {
-            result.push("E");
+            result.push('E');
         } else if (I > E && ((E + I) === 5)) {
-            result.push("I");
+            result.push('I');
         }
         if (S > N && ((S + N) === 5)) {
-            result.push("S");
+            result.push('S');
         } else if (N > S && ((S + N) === 5)) {
-            result.push("N");
+            result.push('N');
         }
         if (F > T && ((F + T) === 5)) {
-            result.push("F");
+            result.push('F');
         } else if (T > F && ((F + T) === 5)) {
-            result.push("T");
+            result.push('T');
         }
         if (J > P && ((J + P) === 5)) {
-            result.push("J");
+            result.push('J');
         } else if (P > J && ((J + P) === 5)) {
-            result.push("P");
+            result.push('P');
         }
-        joinedResult = result.join("");
-        // console.log("joinedResult", joinedResult);
-        if(checkIfAllQsAnswered(joinedResult)){
+
+        // Join the four-letter result to be one string
+        joinedResult = result.join('');
+
+        // If all questions are answered, run create user function which redirects to results page
+        if (checkIfAllQsAnswered(joinedResult)) {
             createUser();
         }
-        // $("#firstNameOverview").text(overviewUserFirstName);
-        // $("#funFactsName").text(funUserFirstName);
     });
 
-    // grab user info from form and save to variables
-
-    // insert first name to results
-    // const firstNameOverview = $("#firstNameOverview").text();
-    // const funFactsName = $("#funFactsName").text();
-
-    //ajax post request to post to database
+    // AJAX post request to post to database, then redirects to results page with user's result
     const createUser = () => {
         const userInfo = {
-            firstName: $("#inputName2").val(),
-            username: $("#inputEmail2").val(),
-            password: $("#inputPassword2").val(),
+            firstName: $('#inputName2').val(),
+            username: $('#inputEmail2').val(),
+            password: $('#inputPassword2').val(),
             result: joinedResult
         }
         $.ajax({
-            method: "POST",
-            url: "/api/users",
+            method: 'POST',
+            url: '/api/users',
             data: userInfo
         })
             .then(user => {
-                console.log("create user user info", user);
                 window.location.href = `/results/${joinedResult}/${user.id}`;
-                // overviewUserFirstName = user.firstName + firstNameOverview;
-                // funFirstName = funFactsName + user.firstName + "!"
-            })
+            }).catch(err => alert(err.responseJSON.message));
     }
 
-    // post request to post user data to server
+    // Post request to post user data to server, then redirects to results page with user's result
     const signInUser = (username, password) => {
         $.ajax({
-            method: "POST",
-            url: "/api/sign-in",
+            method: 'POST',
+            url: '/api/sign-in',
             data: {
                 username: username,
                 password: password
             }
         })
             .then(data => {
-                if (!data) {
-                    return alert("Username and password do not match.")
-                }
-                // location.reload();
-                console.log('signin user data', data);
-                localStorage.setItem("userId", data.id);
-                localStorage.setItem("userResult", data.result)
+                localStorage.setItem('userId', data.id);
+                localStorage.setItem('userResult', data.result)
                 window.location.href = `/results/${data.result}/${data.id}`;
-                // overviewUserFirstName = data.firstName + firstNameOverview;
-                // funFirstName = funFactsName + data.firstName + "!";
+            }).catch(err => {
+                alert(err.responseJSON.message);
             });
     }
 });
 
 
+// Function to make sure user answered all questions and filled out user info form
 const checkIfAllQsAnswered = (joinedResult) => {
     if (joinedResult.length === 4) {
         if ($('#inputEmail2').val() === '' || $('#inputPassword2').val() === '' || $('#inputName2').val() === '') {
-            alert("Please complete all fields to get your results!")
+            alert('Please complete all fields to get your results!')
             return false
         } else {
             return true
-            // console.log("joinedResult", joinedResult);
-            // window.location.pathname = `/results/${joinedResult}`;
         }
     } else {
-        alert("Please answer all questions.");
+        alert('Please answer all questions.');
         setToZero();
         return false
     }
