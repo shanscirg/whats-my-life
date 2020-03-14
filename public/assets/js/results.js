@@ -56,8 +56,8 @@ $(document).ready(() => {
     });
 
     // On click function for 'Save and View Results' button that:
-        // Generates user's four-letter result if all Q's are answered & user form is filled out
-        // Saves user info to create user
+    // Generates user's four-letter result if all Q's are answered & user form is filled out
+    // Saves user info to create user
     $('#submitFinal').click(() => {
 
         // Four for-loops for each set of five questions to add to letter variables based on if they selected true or false 
@@ -95,8 +95,8 @@ $(document).ready(() => {
         };
 
         // If/else statements to...
-            // Check which letter to push to results array to ensure only 4 letters get generated as the final result
-            // Make sure each letter pair adds up to five. If user doesn't answer all questions at first, it messes with the number for each variable.
+        // Check which letter to push to results array to ensure only 4 letters get generated as the final result
+        // Make sure each letter pair adds up to five. If user doesn't answer all questions at first, it messes with the number for each variable.
         if (E > I && ((E + I) === 5)) {
             result.push('E');
         } else if (I > E && ((E + I) === 5)) {
@@ -127,7 +127,7 @@ $(document).ready(() => {
         }
     });
 
-    // AJAX post request to post to database
+    // AJAX post request to post to database, then redirects to results page with user's result
     const createUser = () => {
         const userInfo = {
             firstName: $('#inputName2').val(),
@@ -142,10 +142,10 @@ $(document).ready(() => {
         })
             .then(user => {
                 window.location.href = `/results/${joinedResult}/${user.id}`;
-            })
+            }).catch(err => alert(err.responseJSON.message));
     }
 
-    // Post request to post user data to server
+    // Post request to post user data to server, then redirects to results page with user's result
     const signInUser = (username, password) => {
         $.ajax({
             method: 'POST',
@@ -156,12 +156,11 @@ $(document).ready(() => {
             }
         })
             .then(data => {
-                if (!data) {
-                    return alert('Username and password do not match.')
-                }
                 localStorage.setItem('userId', data.id);
                 localStorage.setItem('userResult', data.result)
                 window.location.href = `/results/${data.result}/${data.id}`;
+            }).catch(err => {
+                alert(err.responseJSON.message);
             });
     }
 });
