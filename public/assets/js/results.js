@@ -165,12 +165,14 @@ $(document).ready(() => {
     }
 });
 
-
 // Function to make sure user answered all questions and filled out user info form
 const checkIfAllQsAnswered = (joinedResult) => {
     if (joinedResult.length === 4) {
         if ($('#inputEmail2').val() === '' || $('#inputPassword2').val() === '' || $('#inputName2').val() === '') {
-            alert('Please complete all fields to get your results!')
+            alert('Please complete all fields to get your results!');
+            return false
+        } else if ($("#inputPassword2").val().length < 8) {
+            alert('Password must be at least 8 characters.');
             return false
         } else {
             return true
