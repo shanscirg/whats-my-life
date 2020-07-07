@@ -4,25 +4,32 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
   font-family: 'Quicksand', sans-serif;
+  overflow: scroll;
 }
 
 /* landing page div centered in screen  */
-.ptn-ctr {
-  position: fixed;
+/* .ptn-ctr {
+  /* display: inline-block; */
+  /* position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+  margin-bottom: 20px; */
+/* } */ 
 
 /* footer position for landing page  */
 .page-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  min-height: 100vh;
 }
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
+  margin-top: 30px;
 }
 
 /* Row margin to match container */
@@ -63,4 +70,15 @@ hr:last-child {
 
 .btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
   background-color: #fb8b15;
+}
+
+@media only screen and (max-width: 800px) {
+  .ptn-ctr {
+    margin-top: 200px;
+  }
+  .footer {
+    position: absolute;
+    bottom: -250px;
+    width: 100%;
+  }
 }
