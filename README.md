@@ -29,4 +29,4 @@ GitHub Repository: https://github.com/shanscirg/project2
 * Must use Handlebars.js
 
 ### Application Preview
-![](/public/assets/img/landingPage.png)
+![](/public/assets/img/updatedLanding.png)
