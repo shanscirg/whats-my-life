@@ -1,4 +1,4 @@
-# Project 2 - What's my Life!?
+# Project 2 - What's My Life!?
 
 ## Description
 This application prompts the user to take a 20-question personality quiz. The user receives personalized results including their Myers Briggs Indicator Type (4-letter acronym), a detailed description of the specific type, and six fun facts. The user is also prompted to create a username and password in order to sign in and view their results at any time.
@@ -29,4 +29,4 @@ GitHub Repository: https://github.com/shanscirg/project2
 * Must use Handlebars.js
 
 ### Application Preview
-![](/public/assets/img/landingPage.png)
+![](/public/assets/img/updatedLanding.png)
